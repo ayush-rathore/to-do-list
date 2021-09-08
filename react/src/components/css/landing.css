@@ -1,0 +1,11 @@
+.header img {
+    height: 5%;
+    width: 3%;
+    margin: 2% 0 0 5%;
+}
+.header p {
+    display: inline;
+    font-size: 44px;
+    font-weight: 600;
+    color: #0d0d0d;
+}

@@ -1,0 +1,34 @@
+.card {
+    display: grid;
+    border-radius: 8px;
+    height: 30vh;
+    width: 30vw;
+    margin: 10% 0 0 5%;
+    background-color: white;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
+}
+.card > #name {
+    font-size: 20px;
+    font-weight: 600;
+}
+.card > p {
+    margin: auto;
+    color: #000c66;
+}
+.card > button {
+    height: 5vh;
+    width: 8vw;
+    text-align: center;
+    margin: 5% 0 0 37%;
+    border: 0px;
+    border-radius: 2px;
+    height: 5vh;
+    background-color: #1565c0;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
+}
+.card > button:hover {
+    cursor: pointer;
+    background-color: #0d47a1;
+}
