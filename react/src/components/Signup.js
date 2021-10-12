@@ -3,8 +3,7 @@ import Axios from "axios";
 import "./css/signup.css";
 import { useHistory } from "react-router-dom";
 
-const Signup = (props) => {
-	const { setUserState } = props;
+const Signup = ({ setUserState }) => {
 	const [user, setUser] = useState({});
 	const history = useHistory();
 	const onSubmitClick = async (event) => {
