@@ -1,63 +1,81 @@
 * {
-    font-family: Montserrat;
-    margin: 0;
+	font-family: Montserrat;
+	margin: 0;
 }
-.main {
-    display: block;
+.login-div {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background-color: #e6eeff;
 }
-.main > p {
-    margin-top: 3%;
-    text-align: center;
-    font-size: 4vh;
-    font-weight: 600;
-    color: #424242;
+.login-heading {
+	margin: 5% 0 8% 0;
+	text-align: center;
 }
-h1 {
-    font-size: 7vh;
+.welcome {
+	font-weight: 600;
+	font-size: 5vh;
 }
-.form {
-    height: 65vh;
-    width: 30vw;
-    background-color: white;
-    margin: 3% auto auto auto;
-    color: #424242;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.get-started {
+	color: #7889a4;
+	font-weight: 600;
 }
-.form > form {
-    margin: 0 0 0 10%;
-    padding-top: 1%;
+.login-form {
+	flex: 1;
+	height: 50vh;
+	width: 30vw;
+	background-color: white;
+	margin: 10% auto auto auto;
+	color: #324567;
+	border-radius: 10px;
+	box-shadow: 100px 100px 80px rgba(0, 0, 0, 0);
 }
-.form > form > input {
-    font-size: medium;
-    font-weight: 700;
-    background-color: #eeeade;
-    border: 2px solid #d3d3d3;
-    border-radius: 4px;
-    height: 5vh;
-    width: 18vw;
+
+.login-form > form > input {
+	font-size: 15px;
+	font-weight: 600;
+	background-color: #eeeade;
+	border: 1px solid #d3d3d3;
+	border-radius: 4px;
+	height: 5vh;
+	width: 80%;
+	margin-left: 10%;
 }
-.form > form > button {
-    background-color: #1565c0;
-    color: white;
-    border: 0px;
-    border-radius: 4px;
-    height: 40px;
-    width: 100px;
-    margin-left: 30%;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
+.login-button {
+	background-color: #1565c0;
+	color: white;
+	border: 0px;
+	border-radius: 4px;
+	height: 40px;
+	width: 80%;
+	margin: auto auto 5% 10%;
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
 }
-.form > form > button:hover {
-    background-color: #10519c;
+.login-button:hover {
+	background-color: #10519c;
 }
-#register {
-    font-size: 15px;
-    color: #424242;
-    font-weight: 600;
+.register {
+	flex: 1;
+	padding-top: 3%;
+	text-align: center;
+	font-size: 15px;
+	color: #324567;
+	font-weight: 600;
 }
-@media only screen and (max-width: 1200px) {
+
+.sign-up {
+	color: #1565c0;
+	text-decoration: none;
+}
+
+.list-image-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.list-image {
+	height: 10vh;
+	width: 10vw;
 }
