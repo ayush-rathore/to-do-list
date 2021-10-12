@@ -36,8 +36,8 @@ const Login = (props) => {
 				<form>
 					<div className={"login-heading"}>
 						<span className={"welcome"}>Welcome back</span> <br />
-						<span className={"get-started"}>
-							Login and get started
+						<span className={"continue"}>
+							Enter your credentials to continue
 						</span>
 					</div>
 					<input
