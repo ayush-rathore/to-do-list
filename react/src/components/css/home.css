@@ -2,55 +2,41 @@
 	font-family: Montserrat;
 	margin: 0;
 }
-#welcome {
+.home-div {
+	padding-top: 1%;
+	background-color: #e6eeff;
+	height: 100vh;
+}
+.homepage {
+	display: flex;
+	flex-direction: column;
+}
+.welcome-msg {
 	font-size: 30px;
 	font-weight: 600;
-	display: inline;
-	margin-left: 33%;
-	color: #000c66;
+	margin-left: 38%;
+	color: #324567;
 }
-div > #img {
-	float: right;
-	margin-right: 2%;
-	border: 0px;
-	border-radius: 50px;
-}
-div > #img:hover {
-	background-color: #f5f5f5;
-	cursor: pointer;
-}
-.show > #p {
-	display: inline;
-	margin-left: 35%;
-	color: #000c66;
-}
-.render {
+.render-cards {
 	display: grid;
 	grid-template-columns: auto auto auto;
 	grid-template-rows: max-content;
-	/* background-image: url("../components/body2.jpg"); */
-	/* background-size: cover; */
 }
 .cards {
 	display: block;
 }
-body {
-	margin: 0;
+
+.work-image-div {
+	display: flex;
+	flex-direction: column;
 }
-.home {
-	margin-top: 2%;
-}
-hr {
-	border: 1px solid;
-}
-.work {
-	margin: 0 0 0 25%;
-}
-#work {
+.work-image {
+	display: flex;
+	margin: 3% auto auto 30%;
 	height: 50vh;
 	width: 40vw;
 }
-#add {
+.add-task {
 	float: right;
 	margin-right: 2%;
 	border: 0px;
@@ -62,11 +48,28 @@ hr {
 	font-weight: 600;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
 }
-#add:hover {
+.add-task:hover {
 	cursor: pointer;
 	background-color: #0d47a1;
 }
-#show {
+
+.log-out {
+	float: right;
+	margin-right: 2%;
+	border: 0px;
+	border-radius: 2px;
+	height: 6vh;
+	width: 8vw;
+	background-color: #1565c0;
+	color: white;
+	font-weight: 600;
+	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
+}
+.log-out:hover {
+	cursor: pointer;
+	background-color: #0d47a1;
+}
+.show-tasks {
 	margin-left: 1%;
 	border: 0px;
 	border-radius: 2px;
@@ -76,10 +79,12 @@ hr {
 	font-weight: 600;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
 }
-#show:hover {
+.show-tasks:hover {
 	cursor: pointer;
 	background-color: #0d47a1;
 }
-.none > #welcome {
-	margin-left: 37%;
+.no-tasks {
+	display: flex;
+	margin-top: 2%;
+	justify-content: center;
 }
