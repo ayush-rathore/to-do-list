@@ -47,39 +47,43 @@ const Home = ({ user }) => {
 	const renderScreen = () => {
 		if (screenType === undefined) {
 			return (
-				<div className={"none"}>
-					<p id={"welcome"}>Welcome, {user.name}</p>
-					<button
-						id={"add"}
-						onClick={() => {
-							localStorage.clear();
-							window.alert("User Logged out");
-							history.push("/login");
-						}}
-					>
-						<i className="far fa-user"></i> Log Out
-					</button>
-					<button onClick={() => setScreenType("ADD")} id={"add"}>
-						{" "}
-						<i className="far fa-address-card"></i> Add Tasks
-					</button>
-					<br />
-					<div className={"work"}>
-						<p>
-							<br />
+				<div className={"homepage"}>
+					<div className={"welcome-msg"}>
+						Welcome, {user.name}
+						<button
+							className={"log-out"}
+							onClick={() => {
+								localStorage.clear();
+								window.alert("User Logged out");
+								history.push("/login");
+							}}
+						>
+							<i className="far fa-user"></i> Log Out
+						</button>
+						<button
+							onClick={() => setScreenType("ADD")}
+							className={"add-task"}
+						>
+							<i className="far fa-address-card"></i> Add Tasks
+						</button>
+					</div>
+					<div className={"work-image-div"}>
+						<div className={"no-tasks"}>
 							Seems like you don't have any tasks. Add some tasks
 							and get started...
-						</p>
-						<img src={work} alt={"work"} id={"work"} />
+						</div>
+						<div className={"work-image"}>
+							<img src={work} alt={"work"} />
+						</div>
 					</div>
 				</div>
 			);
 		} else if (screenType === "SHOW") {
 			return (
-				<div className={"show"}>
-					<p id={"welcome"}>Welcome, {user.name}</p>
+				<div className={"show-tasks"}>
+					<div className={"welcome-msg"}>Welcome, {user.name}</div>
 					<button
-						id={"add"}
+						className={"log-out"}
 						onClick={() => {
 							localStorage.clear();
 							window.alert("User Logged out");
@@ -88,20 +92,25 @@ const Home = ({ user }) => {
 					>
 						<i className="far fa-user"></i> Log Out
 					</button>
-					<button onClick={() => setScreenType("ADD")} id={"add"}>
+					<button
+						onClick={() => setScreenType("ADD")}
+						className={"add-task"}
+					>
 						<i className="far fa-address-card"></i> Add Tasks
 					</button>
 					<br /> <br />
-					<p id={"p"}>(Here are the tasks that you've created...)</p>
+					<div className={"tasks-info"}>
+						(Here are the tasks that you've created...)
+					</div>
 					<br /> <br />
 					<div className={"cards"}>
-						<div className={"render"}>{renderCards}</div>
+						<div className={"render-cards"}>{renderCards}</div>
 					</div>
 				</div>
 			);
 		} else if (screenType === "ADD") {
 			return (
-				<div className={"add"}>
+				<div className={"add-tasks-div"}>
 					<AddTask
 						setTasks={setTasks}
 						tasks={tasks}
@@ -109,13 +118,16 @@ const Home = ({ user }) => {
 						setScreenType={setScreenType}
 					/>
 					<br />
-					<button onClick={() => setScreenType("SHOW")} id={"show"}>
+					<button
+						onClick={() => setScreenType("SHOW")}
+						className={"show"}
+					>
 						<i className="far fa-address-card"></i> Show Tasks
 					</button>
 				</div>
 			);
 		}
 	};
-	return <div className={"home"}>{renderScreen()}</div>;
+	return <div className={"home-div"}>{renderScreen()}</div>;
 };
 export default Home;
