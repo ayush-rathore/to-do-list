@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./css/login.css";
 import Axios from "axios";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import ListSvg from "./images/list-svg.svg";
 
-const Login = (props) => {
-	const { setUserState } = props;
+const Login = ({ setUserState }) => {
 	const [user, setUser] = useState({});
 	const history = useHistory();
 	const onSubmitClick = async (event) => {
@@ -70,9 +69,12 @@ const Login = (props) => {
 			</div>
 			<div className={"register"}>
 				Don't have an account?&nbsp;
-				<Link to="/signup">
-					<span className={"sign-up"}>Sign Up</span>
-				</Link>
+				<span
+					className={"sign-up"}
+					onClick={() => history.push("/signup")}
+				>
+					Sign Up
+				</span>
 			</div>
 		</div>
 	);

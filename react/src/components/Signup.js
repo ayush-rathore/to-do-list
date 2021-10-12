@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import "./css/signup.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Signup = (props) => {
 	const { setUserState } = props;
@@ -76,9 +76,12 @@ const Signup = (props) => {
 			</div>
 			<div className={"register"}>
 				Already have an account?&nbsp;
-				<Link to="/login">
-					<span className={"sign-up"}>Login</span>
-				</Link>
+				<span
+					className={"sign-up"}
+					onClick={() => history.push("/login")}
+				>
+					Login
+				</span>
 			</div>
 		</div>
 	);
