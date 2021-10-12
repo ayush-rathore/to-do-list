@@ -65,6 +65,7 @@
 .sign-up {
 	color: #1565c0;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .list-image-div {
