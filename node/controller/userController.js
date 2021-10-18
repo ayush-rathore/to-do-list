@@ -1,12 +1,11 @@
-const mongoose = require("mongoose");
 const User = require("../models/user");
 
 exports.signup = (req, res) => {
-	let { name, email, password } = req.body;
-	let user = new User({ name, email, password });
+	let { userName, password } = req.body;
+	let user = new User({ userName, password });
 	user.save()
 		.then(() => {
-			console.info(`User created with name ${name}`);
+			console.info(`User created with name ${user.userName}`);
 			return res.status(200).send(user);
 		})
 		.catch((error) => {
@@ -16,8 +15,8 @@ exports.signup = (req, res) => {
 };
 
 exports.login = (req, res) => {
-	let { email, password } = req.body;
-	User.findOne({ email: email })
+	let { userName, password } = req.body;
+	User.findOne({ userName: userName })
 		.then((user) => {
 			if (user) {
 				if (password === user.password) {
@@ -27,13 +26,9 @@ exports.login = (req, res) => {
 				console.warn("Password Incorrect");
 				return res.status(401).send("Password incorrect");
 			}
-			console.error(`User with email ${email} is not registered`);
-			return res
-				.status(404)
-				.send(`User with email ${email} is not registered`);
 		})
 		.catch((error) => {
-			console.error(error);
+			console.error(`User with name ${userName} is not registered`);
 			return res.status(404).send(error);
 		});
 };
