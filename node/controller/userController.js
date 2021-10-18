@@ -7,7 +7,7 @@ exports.signup = (req, res) => {
 	user.save()
 		.then(() => {
 			console.info(`User created with name ${name}`);
-			return res.status(200).send({ user, token });
+			return res.status(200).send(user);
 		})
 		.catch((error) => {
 			console.error(error);
@@ -22,7 +22,7 @@ exports.login = (req, res) => {
 			if (user) {
 				if (password === user.password) {
 					console.info("Login successful");
-					return res.status(200).send({ user, token });
+					return res.status(200).send(user);
 				}
 				console.warn("Password Incorrect");
 				return res.status(401).send("Password incorrect");
