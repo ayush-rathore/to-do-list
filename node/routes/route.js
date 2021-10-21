@@ -7,10 +7,10 @@ const taskController = require("../controller/todoController");
 // User Routes
 router.post("/user/signup", userController.signup);
 router.post("/user/login", userController.login);
+router.get("/users", userController.users);
 
 //To Do Routes
 router.post("/todo/add", taskController.addTask);
-// router.get("/user/:userId", taskController.getTaskByUserId);
-// router.delete("/task/:taskId", taskController.removeTask);
+router.get("/todo/getTask", taskController.getTask);
 
 module.exports = router;
