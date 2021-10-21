@@ -20,7 +20,7 @@ exports.login = (req, res) => {
 		.then((user) => {
 			if (user) {
 				if (password === user.password) {
-					console.info("Login successful");
+					console.info(`${userName} logged in.`);
 					return res.status(200).send(user);
 				}
 				console.warn("Password Incorrect");
