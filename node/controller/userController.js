@@ -16,11 +16,11 @@ exports.signup = (req, res) => {
 
 exports.login = (req, res) => {
 	let { userName, password } = req.body;
-	User.findOne({ userName: userName })
+	User.findOne({ userName })
 		.then((user) => {
 			if (user) {
 				if (password === user.password) {
-					console.info(`${userName} logged in.`);
+					console.info(`${userName} logged in`);
 					return res.status(200).send(user);
 				}
 				console.warn("Password Incorrect");
@@ -28,7 +28,19 @@ exports.login = (req, res) => {
 			}
 		})
 		.catch((error) => {
-			console.error(`User with name ${userName} is not registered`);
+			console.error(`User not found`);
 			return res.status(404).send(error);
+		});
+};
+
+exports.users = (req, res) => {
+	User.find()
+		.then((users) => {
+			if (users) {
+				return res.status(200).send(users);
+			}
+		})
+		.catch((error) => {
+			return res.status(500).send(error);
 		});
 };
