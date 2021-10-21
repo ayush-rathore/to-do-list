@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import Home from "./components/Home";
+import Login from "./components/pages/Login";
+import Signup from "./components/pages/Signup";
+import "./app.css";
+// import Home from "./components/pages/Home";
 
 const App = () => {
 	const [user, setUserState] = useState({});
@@ -24,9 +25,9 @@ const App = () => {
 				<Route path={"/signup"} exact>
 					<Signup setUserState={setUserState} />
 				</Route>
-				<Route path={"/home"}>
+				{/* <Route path={"/home"}>
 					<Home user={user} />
-				</Route>
+				</Route> */}
 				<Route path={"/"}>
 					<Login />
 				</Route>
