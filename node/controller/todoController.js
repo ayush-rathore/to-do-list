@@ -31,17 +31,3 @@ exports.getTask = (req, res) => {
 			return res.status(500).send(error);
 		});
 };
-
-exports.removeTask = (req, res) => {
-	let { taskId } = req.params;
-	taskId = mongoose.Types.ObjectId(taskId);
-	Task.deleteOne({ _id: taskId })
-		.then(() => {
-			console.info("Task deleted successfully");
-			return res.status(200).send("Task deleted successfully");
-		})
-		.catch((error) => {
-			console.error("Task not deleted");
-			return res.status(500).send(error);
-		});
-};
