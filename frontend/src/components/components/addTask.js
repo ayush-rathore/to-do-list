@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "../css/task.css";
 
-const AddTask = (props) => {
+const AddTask = ({ tasks, setTasks, user, setScreenType }) => {
 	const [task, setTask] = useState({});
-	const { tasks, setTasks, user, setScreenType } = props;
 
 	const onAddTask = async (event) => {
 		event.preventDefault();
-		await Axios.post("http://localhost:8080/todo/", {
+		await Axios.post("http://localhost:8080/todo/addTask", {
 			...task,
-			userId: user._id,
+			userID: user._id,
 		})
 			.then(({ data: addedTask }) => {
 				window.alert("Task Added!");
@@ -35,7 +34,7 @@ const AddTask = (props) => {
 					onChange={(event) => {
 						setTask({ ...task, taskName: event.target.value });
 					}}
-				/>{" "}
+				/>
 				<br /> <br />
 				<label>Task Description</label> <br /> <br />
 				<input
@@ -47,11 +46,10 @@ const AddTask = (props) => {
 							taskDescription: event.target.value,
 						});
 					}}
-				/>{" "}
+				/>
 				<br /> <br />
 			</form>
 			<button onClick={onAddTask}>
-				{" "}
 				<i class="far fa-address-card"></i> Add Task
 			</button>
 		</div>
