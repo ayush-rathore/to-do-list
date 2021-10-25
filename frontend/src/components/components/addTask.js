@@ -4,7 +4,6 @@ import "../css/task.css";
 
 const AddTask = ({ tasks, setTasks, user, setScreenType }) => {
 	const [task, setTask] = useState({});
-
 	const onAddTask = async (event) => {
 		event.preventDefault();
 		await Axios.post("http://localhost:8080/todo/addTask", {
