@@ -1,2 +1,2 @@
 # To-Do-List
-A To-Do List web app made using ReactJS and NodeJS. 
+A To-Do List web app made using MERN Stack.
