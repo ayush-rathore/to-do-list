@@ -10,14 +10,12 @@ const Signup = ({ setUserState }) => {
 		event.preventDefault();
 		await Axios.post("http://localhost:8080/user/signup", { ...user })
 			.then(({ data }) => {
-				localStorage.setItem("user", JSON.stringify(data));
-				console.info(`User created`);
-				console.log(data.user);
+				localStorage.setItem("user", data);
 				setUserState(data.user);
 				window.alert("Sign up successful");
-				// setTimeout(() => {
-				// 	history.push("/login");
-				// }, 1000);
+				setTimeout(() => {
+					history.push("/login");
+				}, 1000);
 			})
 			.catch((error) => {
 				console.error(error);
