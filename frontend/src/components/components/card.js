@@ -8,8 +8,8 @@ const TaskCard = (props) => {
 	const onButtonClick = async (event) => {
 		event.preventDefault();
 		console.log(foundTask);
-		await Axios.delete(
-			`http://localhost:8080/todo/task/${foundTask.current[0]._id}`
+		await Axios.get(
+			`http://localhost:8080/todo/removeTask/${foundTask.current[0]._id}`
 		)
 			.then(() => {
 				console.info("Task deleted Successfully");
