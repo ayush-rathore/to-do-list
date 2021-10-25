@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import TaskCard from "../components/card";
 import AddTask from "../components/addTask";
 import "../css/home.css";
+import work from "../assets/work.svg";
 import { useHistory } from "react-router-dom";
 
 const Home = ({ user }) => {
@@ -14,7 +15,9 @@ const Home = ({ user }) => {
 		if (Object.keys(user).length > 0) {
 			console.log(user);
 			const fetchTasks = async () => {
-				await Axios.get(`http://localhost:8080/todo/user/${user._id}`)
+				await Axios.get(
+					`http://localhost:8080/todo/getTask/${user._id}`
+				)
 					.then(({ data: foundTasks }) => {
 						console.info(foundTasks);
 						foundTask.current = foundTasks;
@@ -30,7 +33,6 @@ const Home = ({ user }) => {
 			fetchTasks();
 		}
 	}, [user]);
-	console.log(tasks.length);
 
 	const renderCards = tasks.map((task, index) => {
 		return (
@@ -46,41 +48,10 @@ const Home = ({ user }) => {
 	const renderScreen = () => {
 		if (screenType === undefined) {
 			return (
-				<div className={"homepage"}>
-					<div className={"welcome-msg"}>
-						Welcome, {user.name}
-						<button
-							className={"log-out"}
-							onClick={() => {
-								localStorage.clear();
-								window.alert("User Logged out");
-								history.push("/login");
-							}}
-						>
-							<i className="far fa-user"></i> Log Out
-						</button>
-						<button
-							onClick={() => setScreenType("ADD")}
-							className={"add-task"}
-						>
-							<i className="far fa-address-card"></i> Add Tasks
-						</button>
+				<div className={"no-task-div"}>
+					<div className={"welcome-div"}>
+						Welcome, {user.userName}
 					</div>
-					<div className={"work-image-div"}>
-						<div className={"no-tasks"}>
-							Seems like you don't have any tasks. Add some tasks
-							and get started...
-						</div>
-						<div className={"work-image"}>
-							<img src={"none"} alt={"work"} />
-						</div>
-					</div>
-				</div>
-			);
-		} else if (screenType === "SHOW") {
-			return (
-				<div className={"show-tasks"}>
-					<div className={"welcome-msg"}>Welcome, {user.name}</div>
 					<button
 						className={"log-out"}
 						onClick={() => {
@@ -93,14 +64,44 @@ const Home = ({ user }) => {
 					</button>
 					<button
 						onClick={() => setScreenType("ADD")}
-						className={"add-task"}
+						className={"add-button"}
+					>
+						<i className="far fa-address-card"></i> Add
+					</button>
+					<hr />
+					<div className={"sub-div"}>
+						Seems like you don't have any tasks. Add some tasks and
+						get started...
+						<div className={"work-image"}>
+							<img src={work} alt={"work"} />
+						</div>
+					</div>
+				</div>
+			);
+		} else if (screenType === "SHOW") {
+			return (
+				<div className={"show-task-div"}>
+					<div className={"welcome-div"}>
+						Welcome, {user.userName}
+					</div>
+					<button
+						className={"add-button"}
+						onClick={() => {
+							localStorage.clear();
+							window.alert("User Logged out");
+							history.push("/login");
+						}}
+					>
+						<i className="far fa-user"></i> Log Out
+					</button>
+					<button
+						onClick={() => setScreenType("ADD")}
+						className={"add-button"}
 					>
 						<i className="far fa-address-card"></i> Add Tasks
 					</button>
 					<br /> <br />
-					<div className={"tasks-info"}>
-						(Here are the tasks that you've created...)
-					</div>
+					<div>(Here are the tasks that you've created...)</div>
 					<br /> <br />
 					<div className={"cards"}>
 						<div className={"render-cards"}>{renderCards}</div>
@@ -109,7 +110,7 @@ const Home = ({ user }) => {
 			);
 		} else if (screenType === "ADD") {
 			return (
-				<div className={"add-tasks-div"}>
+				<div className={"add-task-div"}>
 					<AddTask
 						setTasks={setTasks}
 						tasks={tasks}
@@ -119,7 +120,7 @@ const Home = ({ user }) => {
 					<br />
 					<button
 						onClick={() => setScreenType("SHOW")}
-						className={"show"}
+						className={"show-button"}
 					>
 						<i className="far fa-address-card"></i> Show Tasks
 					</button>
@@ -127,6 +128,6 @@ const Home = ({ user }) => {
 			);
 		}
 	};
-	return <div className={"home-div"}>{renderScreen()}</div>;
+	return <div className={"main-home-div"}>{renderScreen()}</div>;
 };
 export default Home;
