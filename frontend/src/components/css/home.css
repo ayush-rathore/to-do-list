@@ -1,38 +1,31 @@
-.home-div {
+.main-home-div {
 	padding-top: 1%;
 	background-color: #e6eeff;
 	height: 100vh;
 }
-.homepage {
+.welcome-div {
 	display: flex;
-	flex-direction: column;
-}
-.welcome-msg {
+	align-items: center;
+	justify-content: center;
 	font-size: 30px;
 	font-weight: 600;
-	margin-left: 38%;
 	color: #324567;
 }
-.render-cards {
-	display: grid;
-	grid-template-columns: auto auto auto;
-	grid-template-rows: max-content;
-}
-.cards {
-	display: block;
-}
-
-.work-image-div {
+.sub-div {
 	display: flex;
 	flex-direction: column;
+	text-align: center;
+	font-size: 20px;
+	font-weight: 500;
+	color: #324567;
 }
 .work-image {
+	margin: 3% 25% auto auto;
 	display: flex;
-	margin: 3% auto auto 30%;
-	height: 50vh;
-	width: 40vw;
+	height: 60vh;
+	width: 60vw;
 }
-.add-task {
+.add-button {
 	float: right;
 	margin-right: 2%;
 	border: 0px;
@@ -44,7 +37,7 @@
 	font-weight: 600;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
 }
-.add-task:hover {
+.add-button:hover {
 	cursor: pointer;
 	background-color: #0d47a1;
 }
@@ -65,7 +58,7 @@
 	cursor: pointer;
 	background-color: #0d47a1;
 }
-.show-tasks {
+.show-button {
 	margin-left: 1%;
 	border: 0px;
 	border-radius: 2px;
@@ -75,12 +68,21 @@
 	font-weight: 600;
 	box-shadow: 0 0px 10px rgba(0, 0, 0, 0.122), 0 0px 80px rgba(0, 0, 0, 0.2);
 }
-.show-tasks:hover {
+.show-button:hover {
 	cursor: pointer;
 	background-color: #0d47a1;
 }
-.no-tasks {
+/* .no-task-div {
 	display: flex;
 	margin-top: 2%;
 	justify-content: center;
+} */
+
+.render-cards {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: max-content;
+}
+.cards {
+	display: block;
 }
