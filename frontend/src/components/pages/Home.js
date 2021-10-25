@@ -50,28 +50,31 @@ const Home = ({ user }) => {
 			return (
 				<div className={"no-task-div"}>
 					<div className={"welcome-div"}>
-						Welcome, {user.userName}
+						<div className={"welcome-msg"}>
+							Welcome, {user.userName}
+						</div>
+						<div className={"button-div"}>
+							<button
+								onClick={() => setScreenType("ADD")}
+								className={"add-button"}
+							>
+								<i className="far fa-address-card"></i> Add
+							</button>
+							<button
+								className={"log-out"}
+								onClick={() => {
+									localStorage.clear();
+									window.alert("User Logged out");
+									history.push("/login");
+								}}
+							>
+								<i className="far fa-user"></i> Log Out
+							</button>
+						</div>
 					</div>
-					<button
-						className={"log-out"}
-						onClick={() => {
-							localStorage.clear();
-							window.alert("User Logged out");
-							history.push("/login");
-						}}
-					>
-						<i className="far fa-user"></i> Log Out
-					</button>
-					<button
-						onClick={() => setScreenType("ADD")}
-						className={"add-button"}
-					>
-						<i className="far fa-address-card"></i> Add
-					</button>
 					<hr />
 					<div className={"sub-div"}>
-						Seems like you don't have any tasks. Add some tasks and
-						get started...
+						Create some tasks and Get Started...
 						<div className={"work-image"}>
 							<img src={work} alt={"work"} />
 						</div>
