@@ -18,7 +18,7 @@ To run this project, you will need to edit the following environment variables i
 ## Features
 
 - User authentication
-- Add/Remove tasks
+- CRUD operations
 
 
 ## Run Locally
@@ -54,7 +54,7 @@ Start the server
 
 **Client:** React
 
-**Server:** Node, Express, Nodemon
+**Server:** Node, Express
 
 **Database:** MongoDB
 
